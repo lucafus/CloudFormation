@@ -4,10 +4,9 @@ Resources:
     Type: AWS::EC2::Instance
     Properties:
       ImageId: ami-0ff8a91507f77f867
-      SubnetId: subnet-0a72b74e6bb5538d0
       InstanceType: t2.micro
-      SecurityGroupIds:
-        - sg-0ee73af743db6d32f
+      Tags: 
+        - Cloudformation-Instance
       UserData:
         Fn::Base64: !Sub |
           #!/bin/bash
@@ -15,5 +14,11 @@ Resources:
           sudo systemctl start httpd
           sudo systemctl enable httpd
           sudo echo "Cloud Formation Here we go!" > /var/www/html/index.html
+      NetworkInterfaces:
+        - AssociatePublicIpAddress: 'true'
+          DeviceIndex: '0'
+          GroupSet: 
+            - sg-0ee73af743db6d32f
+          SubnetId: subnet-0a72b74e6bb5538d0
 
-
+        
