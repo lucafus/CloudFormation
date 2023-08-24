@@ -1,5 +1,5 @@
 Type: AWS::EC2::Instance
-Properties:
+Resources:
   AvailabilityZone: us-east-1
   CreditSpecification: standard
   ImageId: ami-0453898e98046c639
