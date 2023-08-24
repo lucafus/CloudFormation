@@ -5,8 +5,6 @@ Resources:
     Properties:
       ImageId: ami-0ff8a91507f77f867
       InstanceType: t2.micro
-      Tags: 
-        - Cloudformation-Instance
       UserData:
         Fn::Base64: !Sub |
           #!/bin/bash
