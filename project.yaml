@@ -1,29 +1,20 @@
 Type: AWS::EC2::Instance
-Properties: 
+Properties:
   AvailabilityZone: us-east-1
-  CreditSpecification: 
-  standard
-  ImageId: ami-0a50c6d5812ce8bf7
+  CreditSpecification: standard
+  ImageId: ami-0453898e98046c639
   InstanceInitiatedShutdownBehavior: stop
   InstanceType: t2.micro
   KeyName: P1
-  NetworkInterfaces: 
-    - NetworkInterface
-  PlacementGroupName: String
-  PrivateDnsNameOptions: 
-    PrivateDnsNameOptions
-  PrivateIpAddress: String
-  PropagateTagsToVolumeOnCreation: Boolean
-  RamdiskId: String
-  SecurityGroupIds: 
+  SecurityGroupIds:
     - sg-020efc4845107b714
   SubnetId: subnet-0a72b74e6bb5538d0
-  Tags: 
+  Tags:
     - "Cloud Formation Test"
-  Tenancy: String
-  UserData: 
-  - #!/bin/bash
-sudo yum install httpd
-sudo systemctl start httpd
-sudo systemctl enable httpd
-sudo echo "Cloud Formation Here we go!" > /var/www/html/index.html
+  UserData:
+    - !Sub |
+      #!/bin/bash
+      sudo yum install httpd
+      sudo systemctl start httpd
+      sudo systemctl enable httpd
+      sudo echo "Cloud Formation Here we go!" > /var/www/html/index.html
