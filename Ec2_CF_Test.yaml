@@ -1,0 +1,22 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Resources:
+  MyInstance:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: ami-0ff8a91507f77f867
+      InstanceType: t2.micro
+      UserData:
+        Fn::Base64: !Sub |
+          #!/bin/bash
+          sudo yum install httpd
+          sudo systemctl start httpd
+          sudo systemctl enable httpd
+          sudo echo "Cloud Formation Here we go!" > /var/www/html/index.html
+      NetworkInterfaces:
+        - AssociatePublicIpAddress: 'true'
+          DeviceIndex: '0'
+          GroupSet: 
+            - sg-0ee73af743db6d32f
+          SubnetId: subnet-0a72b74e6bb5538d0
+
+        
