@@ -195,7 +195,7 @@ Resources:
           sudo yum install httpd
           sudo systemctl start httpd
           sudo systemctl enable httpd
-          sudo echo "Cloud Formation Here we go!" > /var/www/html/index.html
+          
 
 
 
