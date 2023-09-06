@@ -203,7 +203,7 @@ Outputs:
   PrivateSubnets:
     Description: A list of the private subnets
     Value: !Join [ ",", [ !Ref PrivateSubnet1, !Ref PrivateSubnet2 ]]
-    
+
 SecurityGroupWebServer:
   Type: AWS::EC2::SecurityGroup
   Properties:
